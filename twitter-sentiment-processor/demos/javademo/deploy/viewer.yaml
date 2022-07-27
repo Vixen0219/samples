@@ -1,42 +1,50 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: viewer
-  labels:
-    app: viewer
+    name: viewer
+    labels:
+        app: viewer
 spec:
-  selector:
-    app: viewer
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 3000
-  type: LoadBalancer
+    selector:
+        app: viewer
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 3000
+    type: LoadBalancer
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: viewer
-  labels:
-    app: viewer
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: viewer
-  template:
-    metadata:
-      labels:
+    name: viewer
+    labels:
         app: viewer
-      annotations:
-        dapr.io/enabled: "true"
-        dapr.io/app-id: "viewer"
-        dapr.io/app-port: "3000"
-    spec:
-      containers:
-      - name: viewer
-        image: artursouza/twitter-sentiment-javademo-viewer:latest
-        ports:
-        - containerPort: 3000
-        imagePullPolicy: Always
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: viewer
+    template:
+        metadata:
+            labels:
+                app: viewer
+            annotations:
+                dapr.io/enabled: "true"
+                dapr.io/app-id: "viewer"
+                dapr.io/app-port: "3000"
+        spec:
+            containers:
+                - name: viewer
+                  image: artursouza/twitter-sentiment-javademo-viewer:latest
+                  ports:
+                      - containerPort: 3000
+                  imagePullPolicy: Always
+                  resources:
+                      limits:
+                           memory: 512Mi
+                           cpu: "1"
+                      requests:
+                          memory: 256Mi
+                          cpu: "0.2"
+

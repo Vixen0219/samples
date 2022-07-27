@@ -1,26 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: provider
-  labels:
-    app: provider
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: provider
-  template:
-    metadata:
-      labels:
+    name: provider
+    labels:
         app: provider
-      annotations:
-        dapr.io/enabled: "true"
-        dapr.io/app-id: "provider"
-        dapr.io/app-port: "3000"
-    spec:
-      containers:
-      - name: provider
-        image: artursouza/twitter-sentiment-javademo-provider:latest
-        ports:
-        - containerPort: 3000
-        imagePullPolicy: Always
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: provider
+    template:
+        metadata:
+            labels:
+                app: provider
+            annotations:
+                dapr.io/enabled: "true"
+                dapr.io/app-id: "provider"
+                dapr.io/app-port: "3000"
+        spec:
+            containers:
+                - name: provider
+                  image: artursouza/twitter-sentiment-javademo-provider:latest
+                  ports:
+                      - containerPort: 3000
+                  imagePullPolicy: Always
+                  resources:
+                      limits:
+                           memory: 512Mi
+                           cpu: "1"
+                      requests:
+                          memory: 256Mi
+                          cpu: "0.2"
