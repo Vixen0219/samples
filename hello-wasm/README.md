@@ -4,7 +4,7 @@
 
 | Attribute            | Details |
 |----------------------|---------|
-| Dapr runtime version | v0.10   |
+| Dapr runtime version | v1.10   |
 | Language             | TinyGo  | 
 | Environment          | Local   |
 
@@ -84,7 +84,7 @@ Now that Dapr and the Node.js app are running, you can invoke the echo method.
 
 Here's an example using dapr
 ```sh
-$  dapr invoke --verb GET --app-id embedded --method 1
+$ dapr invoke --verb GET --app-id embedded --method 1
 /v1.0/invoke/embedded/method/1
 ✅  App invoked successfully
 ```
