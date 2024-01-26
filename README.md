@@ -33,6 +33,8 @@ If you are new to Dapr, you may want to review following resources first:
 | [commercetools GraphQL sample output binding](./commercetools-graphql-sample/) | Connects to commercetools, allowing you to query or manipulate a commercetools projects using a provided GraphlQL query.  |
 | [WebAssembly Middleware](./hello-wasm) | Demonstrates how to serve HTTP responses directly from the dapr sidecar using WebAssembly.  |
 | [Workflow + external endpoint invocation](./workflow-external-invocation) | Demonstrates how to use the Dapr Workflow API to coordinate an order process that includes an activity which uses service invocation for non-Dapr endpoints. |
+| [Workflow + multi-app microservice in Python](./workflow-orderprocessing-python) | Demonstrates how to use the Dapr Workflow Python SDK to coordinate an order process across multiple dapr-enabled microservices. |
+| [Outbox in .NET](./outbox) | Demonstrates how to use the outbox transactions with Redis and MySql statestores and Redis as the message broker |
 
 ## External samples
 
@@ -42,6 +44,7 @@ If you are new to Dapr, you may want to review following resources first:
 | [Dapr Traffic Control](https://github.com/edwinvw/dapr-traffic-control) | Simulated traffic-control system with speeding cameras. This sample features all the Dapr building-blocks. This is also the sample application used in the book [Dapr for .NET Developers](https://docs.microsoft.com/en-us/dotnet/architecture/dapr-for-net-developers/). |
 | [Dapr Examples](https://github.com/mstrYoda/dapr-examples) | Example usage of Dapr in Golang. This repository contains examples about to use of state store, access management, pubsub and subscription.|
 | [Java Pub/Sub Sample](https://github.com/Azure-Samples/pubsub-dapr-aks-java/tree/main) | Demonstrate a pub/sub messaging architecture using Dapr for a Java application running in a Kubernetes cluster. |
+| [eShop on Dapr](https://github.com/dotnet-architecture/eShopOnDapr) | A sample .NET Core E-Commerce application based on [eShopOnContainers](https://github.com/dotnet-architecture/eShopOnContainers), powered by Dapr. |
 
 ## Sample maintenance
 
@@ -80,7 +83,7 @@ Example:
 
 | Attribute | Details |
 |--------|--------|
-| Dapr runtime version | v0.7.1 |
+| Dapr runtime version | v1.12.0 |
 | Language | Go, C# (.NET Core), Node.js |
 | Environment | Local or Kubernetes |
 
